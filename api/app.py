@@ -30,7 +30,7 @@ def getArticles():
         return {"status": "fail", "data": "DBError"}
     return {"status": "success", "data": data}
 
-@app.route("/getart", ["GET"])
+@app.route("/getart", methods=["GET"])
 def get_article_by_id():
     id = request.args.get("id")
     if id is None:
@@ -43,4 +43,4 @@ def get_article_by_id():
 
 if __name__ == "__main__":
     # app.run(debug=True, port=8001, host="0.0.0.0")
-    app.run(debug=True, host="0.0.0.0", port=8002)
+    app.run(debug=True, host="0.0.0.0", port=8001)

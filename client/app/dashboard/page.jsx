@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { interpolateLab } from "d3-interpolate";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const newsCards = [
     {
