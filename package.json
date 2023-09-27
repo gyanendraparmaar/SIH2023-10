@@ -1,0 +1,12 @@
+{
+  "name": "sih_2k23",
+  "version": "1.0.0",
+  "description": "## Problem **Problem Statement ID:** 1329",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
