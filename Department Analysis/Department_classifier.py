@@ -9,7 +9,6 @@ import transformers
 import pandas as pd
 import pickle
 import numpy as np
-import matplotlib.pyplot as plt
 from tqdm import tqdm
 import unicodedata
 import os, time
@@ -103,7 +102,7 @@ class Department_classifier:
     
     def __init__(self):
 #         self.inference_text = inference_text
-        self.df = pd.read_csv('/kaggle/input/sih-2023/sample1.csv')
+        # self.df = pd.read_csv('/kaggle/input/sih-2023/sample1.csv')
         self.index_to_option = {i: departments[i] for i in range(len(departments))}
         self.option_to_index = {departments[i]: i for i in range(len(departments))}
         self.tokenizer = AutoTokenizer.from_pretrained('/kaggle/input/sih-bigdata/checkpoints_1/checkpoint-300')
@@ -229,4 +228,4 @@ class Department_classifier:
 # You'll need to define 'departments' and make sure all the required libraries are imported.
 ob = Department_classifier()
 outputs = ob.main('Inference', pred)
-outputs
+print(outputs)

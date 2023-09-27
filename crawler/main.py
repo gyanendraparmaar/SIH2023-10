@@ -5,6 +5,8 @@ import datetime
 import pika
 import json
 
+import random
+
 mydb = psycopg2.connect(
     host = "localhost",
     user = "postgres",
@@ -30,11 +32,11 @@ class App:
         for url in req["urls"]:
             article = crawler.getNews(url)
 
-            print(article)
-
             # Do sentiment analysis + department prediction
+            article["sentiment"] = round(random.random(), 3)
+            article["department"] = "noone"
 
-            # self.insertArticle(article)
+            self.insertArticle(article)
 
     def listen(self):
         self.channel.basic_consume(queue = "toCrawl", on_message_callback = self.callback, auto_ack = True)
