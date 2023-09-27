@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { interpolateLab } from "d3-interpolate";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const newsCards = [
   {
@@ -52,7 +53,7 @@ export default function Page() {
   ]);
 
   const [active, setActive] = useState(0);
-  const [sentimentThreshold, setSentimentThreshold] = useState(100); 
+  const [sentimentThreshold, setSentimentThreshold] = useState(100);
 
   const changeDept = (e) => {
     const dept = [...departments];
@@ -68,7 +69,7 @@ export default function Page() {
     setSentimentThreshold(newThreshold);
   };
   const filteredNewsCards = newsCards.filter(
-    (card) => card.sentiment*100 <= sentimentThreshold
+    (card) => card.sentiment * 100 <= sentimentThreshold
   );
 
   useEffect(() => {
@@ -121,15 +122,15 @@ export default function Page() {
         <hr className="border-2 w-full"></hr>
         <div className="h-full w-full p-10 flex flex-wrap gap-5">
           {filteredNewsCards.map((card, i) => (
-  <div
-    key={i}
-    className="relative w-96 h-96 p-5 rounded-md flex flex-col gap-1"
-    style={{
-      backgroundColor: `${interpolateLab(
-        "#ff7f69",
-        "#a5ff69"
-      )(card.sentiment)}`,
-    }}
+            <div
+              key={i}
+              className="relative w-96 h-96 p-5 rounded-md flex flex-col gap-1"
+              style={{
+                backgroundColor: `${interpolateLab(
+                  "#ff7f69",
+                  "#a5ff69"
+                )(card.sentiment)}`,boxShadow: "0 10px 10px rgba(0, 0, 0, 0.5)"
+              }}
             >
               <div className="text-center text-slate-700 text-base font-bold leading-6 max-h-12 overflow-hidden text-ellipsis line-clamp-2 mb-1">
                 {newsCards[i].headline}
@@ -154,12 +155,15 @@ export default function Page() {
                   <span className="text-xl p-2">🙂</span>{" "}
                   {newsCards[i].sentiment * 100}%
                 </p>
-                <a href={`/getart?id=${i}`} className="text-xl p-2" style={{ marginLeft: '200px' }}>
+                <a
+                  href={`/article/${i}`}
+                  className="text-xl p-2"
+                  style={{ marginLeft: "200px" }}
+                >
                   🔗
                 </a>
               </div>
             </div>
-            
           ))}
         </div>
       </div>
