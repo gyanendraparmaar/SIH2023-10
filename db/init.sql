@@ -5,7 +5,8 @@ CREATE TABLE articles (
                         content TEXT NOT NULL,
                         created TIMESTAMP NOT NULL,
                         sentiment NUMERIC(4,3) NOT NULL,
-                        department TEXT NOT NULL
+                        department TEXT NOT NULL,
+                        lang TEXT DEFAULT 'en'
 );
 
 CREATE TABLE users (
