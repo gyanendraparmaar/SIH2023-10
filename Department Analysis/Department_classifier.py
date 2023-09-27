@@ -103,7 +103,7 @@ class Department_classifier:
     
     def __init__(self):
 #         self.inference_text = inference_text
-        self.df = pd.read_csv('/kaggle/input/sih-2023/sample1.csv')
+#         self.df = pd.read_csv('/kaggle/input/sih-2023/sample1.csv')
         self.index_to_option = {i: departments[i] for i in range(len(departments))}
         self.option_to_index = {departments[i]: i for i in range(len(departments))}
         self.tokenizer = AutoTokenizer.from_pretrained('/kaggle/input/sih-bigdata/checkpoints_1/checkpoint-300')
@@ -114,29 +114,29 @@ class Department_classifier:
         nltk.download('vader_lexicon')
         self.sia = SentimentIntensityAnalyzer()
         
-    def data_preprocessing(self):
-        self.df.dropna()
-        self.df = self.df.drop(columns=['image__@type', 'image__height', 'image__width', 'image__url', ])
-        self.df['context'] = self.df['headline'] + '.' + self.df['description'] + '.' + self.df[
-            'datePublished'] + '.' + self.df['articleBody']
-        self.df = self.df.drop(columns=['inLanguage', 'headline', 'description', 'datePublished', 'articleBody'])
-        self.df.dropna()
-        self.df = self.df.drop(self.df[self.df['context'].isna()].index)
-        self.df = self.df.drop(self.df[self.df['department'] == 'indian_government'].index)
-        self.df = self.df.reset_index(drop=True)
+    def data_preprocessing(self, df):
+        df.dropna()
+        df =df.drop(columns=['image__@type', 'image__height', 'image__width', 'image__url', ])
+        df['context'] =df['headline'] + '.' +df['description'] + '.' +df[
+                    'datePublished'] + '.' + df['articleBody']
+        df =df.drop(columns=['inLanguage', 'headline', 'description', 'datePublished', 'articleBody'])
+        df.dropna()
+        df =df.drop(df[df['context'].isna()].index)
+        df =df.drop(df[df['department'] == 'indian_government'].index)
+        df =df.reset_index(drop=True)
         columns = [i for i in range(len(departments))]
         matrix = [columns] * len(self.df)
         data = pd.DataFrame(matrix, columns=departments)
-        self.df.loc[self.df['department'] == "department_for_promotion_of_industry", 'department'] = "Department for Promotion of Industry and Internal Trade"
-        self.df.loc[self.df['department'] == "department_of_personnel_and_training", 'department'] = "Department of Personnel and Training"
-        self.df.loc[self.df['department'] == "department_of_food", 'department'] = "Department of Food and Public Distribution"
-        self.df.loc[self.df['department'] == "department_of_legal_affair", 'department'] = "Department of Legal Affairs "
-        self.df.loc[self.df['department'] == "department_of_health", 'department'] = "Department of Health and Family Welfare"
-        self.df.loc[self.df['department'] == "department_of_science_and_technology", 'department'] = "Department of Science and Technology "
-        self.df.loc[self.df['department'] == "department_of_sports", 'department'] = "Department of Sports"
+        df.loc[df['department'] == "department_for_promotion_of_industry", 'department'] = "Department for Promotion of Industry and Internal Trade"
+        df.loc[df['department'] == "department_of_personnel_and_training", 'department'] = "Department of Personnel and Training"
+        df.loc[df['department'] == "department_of_food", 'department'] = "Department of Food and Public Distribution"
+        df.loc[df['department'] == "department_of_legal_affair", 'department'] = "Department of Legal Affairs "
+        df.loc[df['department'] == "department_of_health", 'department'] = "Department of Health and Family Welfare"
+        df.loc[df['department'] == "department_of_science_and_technology", 'department'] = "Department of Science and Technology "
+        df.loc[df['department'] == "department_of_sports", 'department'] = "Department of Sports"
         contexts = []
-        self.df['department'] = self.df['department'].map(self.option_to_index)
-        return self.df
+        df['department'] =df['department'].map(self.option_to_index)
+        return df
 
     def pre_process(self, example):
         first_sentence = "[CLS]" + example["context"] + "[SEP]"
@@ -203,7 +203,8 @@ class Department_classifier:
         
     def main(self, option, inference_text = None):
         if option == 'Train':
-            data_frame = self.data_preprocessing()
+            df = pd.read_csv('/kaggle/input/sih-2023/sample1.csv')
+            data_frame = self.data_preprocessing(df)
             train_df, val_df = train_test_split(data_frame, test_size=0.2, random_state=42)
             filtered_train_df = train_df[train_df['department'].notna()]
             filtered_val_df = val_df[val_df['department'].notna()]
