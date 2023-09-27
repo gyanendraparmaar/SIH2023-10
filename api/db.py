@@ -3,7 +3,7 @@ import psycopg2
 config = {
     "user": "postgres",
     "password": "idkthepassword",
-    "host": "0.0.0.0"
+    "host": "database"
 }
 conn = psycopg2.connect(host=config["host"], user=config["user"], password=config["password"])
 

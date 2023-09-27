@@ -2,7 +2,6 @@ from urls import urls
 import requests
 from bs4 import BeautifulSoup
 import json
-from tqdm import tqdm
 from translate import Translator
 
 class Crawl:
