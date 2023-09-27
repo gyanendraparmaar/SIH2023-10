@@ -1,5 +1,8 @@
-#!/usr/bin/python3
 from sites import *
+import time
+
+MIN = 10
+toBeChecked = [EconomicTimes, DainikBhaskar]
 
 def sendRequest(jsonObject):
     api = ""
@@ -7,8 +10,7 @@ def sendRequest(jsonObject):
 
 
 if __name__ == '__main__':
-    toBeChecked = [EconomicTimes, DainikBhaskar]
-    for site in toBeChecked:
-        # objects = site.run()
-        # map(sendRequest, objects)
-        site().run()
+    while True:
+        for site in toBeChecked:
+            print(site().run())
+        time.sleep(MIN * 60)
