@@ -34,6 +34,9 @@ export default function Page() {
             dept: "Sports"
         }, {
             dept: "Science and Technology"
+        },
+        {
+            dept: "ABCDEFGH"
         }
     ])
 
@@ -56,9 +59,13 @@ export default function Page() {
 
     return (
         <div className="min-h-full w-full bg-slate-100 grid grid-cols-5 gap-0">
-            <div id="departments" className="bg-slate-700 h-full col-span-1 flex flex-col gap-2 items-center justify-center">
+            <div id="departments" className="bg-slate-700 h-full col-span-1 flex flex-col gap-1 items-center justify-center">
+                <div className="top-0 mt-8 flex flex-col justify-center items-center gap-3 mb-10">
+                    <p className="text-slate-300 font-bold text-2xl">DEPARTMENTS</p>
+                    <hr className="border-2 border-slate-400 w-full"></hr>
+                </div>
                 {
-                    Object.keys(departments).map(i => <div data-num={i} key={i} onClick={changeDept} className={`cursor-pointer ${departments[parseInt(i)].active ? "rounded-r-none" : "rounded-full"} ${departments[parseInt(i)].active ? "hover:bg-slate-100" : "hover:bg-slate-600"} p-5 w-full text-center rounded-full ${departments[parseInt(i)].active ? "bg-slate-100" : "bg-transparent"} ${departments[parseInt(i)].active ? "text-slate-500" : "text-slate-300"} font-bold text-2xl`}>{departments[parseInt(i)].dept}</div>)
+                    Object.keys(departments).map(i => <div data-num={i} key={i} onClick={changeDept} className={`line-clamp-1 overflow-hidden text-ellipsis whitespace-nowrap cursor-pointer ${departments[parseInt(i)].active ? "rounded-r-none" : "rounded-full"} ${departments[parseInt(i)].active ? "hover:bg-slate-100" : "hover:bg-slate-600"} p-5 w-full text-center rounded-full ${departments[parseInt(i)].active ? "bg-slate-100" : "bg-transparent"} ${departments[parseInt(i)].active ? "text-slate-500" : "text-slate-300"} font-bold text-xl`}>{departments[parseInt(i)].dept}</div>)
                 }
             </div>
             <div className="h-full col-span-4 flex flex-col items-center">
