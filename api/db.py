@@ -19,3 +19,14 @@ def getarticles(page, limit):
     curr.close()
 
     return data
+
+def get_id(id):
+    curr = conn.cursor()
+    try:
+        curr.execute("""SELECT id, link, title, content, created, sentiment, department FROM articles WHERE id=%s;""", (id))
+    except psycopg2.ProgrammingError:
+        return []
+    data = curr.fetchone()
+    curr.close()
+
+    return data
