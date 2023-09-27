@@ -9,7 +9,6 @@ import transformers
 import pandas as pd
 import pickle
 import numpy as np
-import matplotlib.pyplot as plt
 from tqdm import tqdm
 import unicodedata
 import os, time
@@ -230,4 +229,4 @@ class Department_classifier:
 # You'll need to define 'departments' and make sure all the required libraries are imported.
 ob = Department_classifier()
 outputs = ob.main('Inference', pred)
-outputs
+print(outputs)
