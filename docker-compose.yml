@@ -2,6 +2,8 @@ services:
   postgres:
     container_name: database
     image: postgres:latest
+    volumes: 
+      - ./db:/docker-entrypoint-initdb.d
     environment:
       - POSTGRES_PASSWORD=idkthepassword
       - PGUSER=postgres

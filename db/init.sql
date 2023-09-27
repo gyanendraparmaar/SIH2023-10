@@ -1,18 +1,18 @@
-CREATE DATABASE newsDatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE newsDatabase;
 CREATE TABLE articles (
-                          id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                          link VARCHAR(100) NOT NULL,
-                          title VARCHAR(100) NOT NULL,
-                          content TEXT NOT NULL,
-                          created DATETIME NOT NULL,
-                          sentiment FLOAT(3,2) NOT NULL,
-                          department VARCHAR(100) NOT NULL
+                        id SERIAL PRIMARY KEY,
+                        link TEXT NOT NULL,
+                        title TEXT NOT NULL,
+                        content TEXT NOT NULL,
+                        created TIMESTAMP NOT NULL,
+                        sentiment NUMERIC(4,3) NOT NULL,
+                        department TEXT NOT NULL,
+                        lang TEXT DEFAULT 'en'
 );
+
 CREATE TABLE users (
-                       id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                       department VARCHAR(255) NOT NULL,
-                       hashed_password CHAR(60) NOT NULL,
-                       created DATETIME NOT NULL,
-                       writeAcess BOOLEAN NOT NULL DEFAULT TRUE
+                    id SERIAL PRIMARY KEY,
+                    department TEXT NOT NULL,
+                    hashed_password TEXT NOT NULL,
+                    created TIMESTAMP NOT NULL,
+                    writeAcess BOOLEAN DEFAULT TRUE
 );
