@@ -1,13 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-from translate import Translator
+# from translate import Translator
 
 class Crawl:
 	def __init__(self, lang = 'en', provider = 'economictimes'):
 		self.lang = lang
 		self.provider = provider
-		self.translator = Translator(from_lang = 'hi', to_lang = "en")
+		# self.translator = Translator(from_lang = 'hi', to_lang = "en")
 		self.article = {}
 
 		self.KEYS = ['inLanguage', 'headline', 'articleBody']

@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 class EconomicTimes:
     def __init__(self):
         self.base = "https://economictimes.indiatimes.com/topic/"
-        self.last = json.loads(open("access.json", "r").read())[self.base]
+        self.last = json.loads(open("./access.json", "r").read())[self.base]
         self.object = {
             "provider": "economictimes",
             "lang": "en",
@@ -33,13 +33,13 @@ class EconomicTimes:
         for dept in self.last.keys():
             self._readCard(dept)
 
-        access_json = json.loads(open("access.json", "r").read())
+        access_json = json.loads(open("./access.json", "r").read())
         access_json[self.base] = self.last
-        open("access.json", "w").write(json.dumps(access_json, indent=4))
+        open("./access.json", "w").write(json.dumps(access_json, indent=4))
 
-        data = json.loads(open("links.json", "r").read())
+        data = json.loads(open("./links.json", "r").read())
         data.append(self.object)
-        open("links.json", "w").write(json.dumps(data, indent=4))
+        open("./links.json", "w").write(json.dumps(data, indent=4))
 
         return self.object
 
@@ -47,7 +47,7 @@ class EconomicTimes:
 class DainikBhaskar:
     def __init__(self):
         self.base = "https://www.bhaskar.com/national/"
-        self.last = json.loads(open("access.json", "r").read())[self.base]
+        self.last = json.loads(open("./access.json", "r").read())[self.base]
         self.object = {
             "provider": "dainik",
             "lang": "hi",
@@ -71,12 +71,12 @@ class DainikBhaskar:
         for dept in self.last.keys():
             self._readCard(dept)
 
-        access_json = json.loads(open("access.json", "r").read())
+        access_json = json.loads(open("./access.json", "r").read())
         access_json[self.base] = self.last
-        open("access.json", "w").write(json.dumps(access_json, indent=4))
+        open("./access.json", "w").write(json.dumps(access_json, indent=4))
 
-        data = json.loads(open("links.json", "r").read())
+        data = json.loads(open("./links.json", "r").read())
         data.append(self.object)
-        open("links.json", "w").write(json.dumps(data, indent=4))
+        open("./links.json", "w").write(json.dumps(data, indent=4))
 
         return self.object

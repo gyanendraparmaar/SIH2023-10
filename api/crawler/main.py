@@ -10,17 +10,18 @@ import random
 class App:
     def __init__(self):
         self.mydb = psycopg2.connect(
-            host = "localhost",
+            host = "database",
             user = "postgres",
             password = "idkthepassword",
         )
         self.cursor = self.mydb.cursor()
-        connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+        connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq'))
         self.channel = connection.channel()
         self.channel.queue_declare(queue = "toCrawl")
 
     def insertArticle(self, article):
         self.cursor.execute("INSERT INTO articles (link, title, content, created, sentiment, department, lang) VALUES (%s, %s, %s, %s, %s, %s, %s)", ( article["url"], article["headline"], article["articleBody"], datetime.datetime.now().isoformat(), article["sentiment"], article["department"], article["inLanguage"] ))
+        print("Inserted the article")
 
     def callback(self, ch, method, properties, body):
         req = json.loads(body)
@@ -37,6 +38,7 @@ class App:
                 self.insertArticle(article)
 
         self.mydb.commit()
+        print("commited to mydb")
 
     def listen(self):
         self.channel.basic_consume(queue = "toCrawl", on_message_callback = self.callback, auto_ack = True)
