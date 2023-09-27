@@ -5,7 +5,7 @@ import datetime
 import pika
 import json
 
-import random
+from predict import classifier
 
 class App:
     def __init__(self):
@@ -21,6 +21,7 @@ class App:
 
     def insertArticle(self, article):
         self.cursor.execute("INSERT INTO articles (link, title, content, created, sentiment, department, lang) VALUES (%s, %s, %s, %s, %s, %s, %s)", ( article["url"], article["headline"], article["articleBody"], datetime.datetime.now().isoformat(), article["sentiment"], article["department"], article["inLanguage"] ))
+        print("Done adding an article")
 
     def callback(self, ch, method, properties, body):
         req = json.loads(body)
@@ -31,12 +32,14 @@ class App:
             
             if article:
                 # Do sentiment analysis + department prediction
-                article["sentiment"] = round(random.random(), 3)
-                article["department"] = "noone"
+                out = classifier.main("Inference", article["headline"] + article["articleBody"])
+                article["sentiment"] = round((1 + out["Score"]) / 2, 3)
+                article["department"] = out["Department"]
 
                 self.insertArticle(article)
 
         self.mydb.commit()
+        print("Commited!")
 
     def listen(self):
         self.channel.basic_consume(queue = "toCrawl", on_message_callback = self.callback, auto_ack = True)
