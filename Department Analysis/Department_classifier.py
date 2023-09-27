@@ -1,4 +1,4 @@
-
+from __future__ import annotations
 import numpy as np
 import pandas as pd 
 from datasets import load_dataset, load_from_disk
@@ -19,7 +19,6 @@ import numpy as np
 import re
 from tqdm.auto import tqdm
 import blingfire as bf
-from __future__ import annotations
 from collections.abc import Iterable
 import torch
 import ctypes
