@@ -473,5 +473,78 @@
         "provider": "dainik",
         "lang": "hi",
         "urls": []
+    },
+    {
+        "provider": "economictimes",
+        "lang": "en",
+        "urls": []
+    },
+    {
+        "provider": "dainik",
+        "lang": "hi",
+        "urls": []
+    },
+    {
+        "provider": "economictimes",
+        "lang": "en",
+        "urls": [
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/growth-momentum-in-q2-shaping-up-well-but-rise-in-oil-price-poses-a-risk-finmin-report/articleshow/103857949.cms",
+            "https://economictimes.indiatimes.com/topic//markets/bonds/us-10-year-yields-fall-from-16-year-highs/articleshow/103871008.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/finmin-confident-of-6-5-per-cent-growth-in-fy24-despite-symmetric-risks/articleshow/103862493.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/food-prices-that-drove-inflation-are-on-a-retreat-says-dea-highlights-aug-rain-deficit-may-impact-crops/articleshow/103855337.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/inclusion-in-jpmorgan-index-shows-confidence-in-indian-economy-says-economic-affairs-secy-ajay-seth/articleshow/103854196.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/india-to-become-usd-5-trillion-economy-third-largest-by-2027-rbi-dg-patra/articleshow/103844727.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/ind-ra-raises-indias-growth-forecast-to-6-2-for-fy24-projects-inflation-to-be-higher-at-5-5/articleshow/103807441.cms",
+            "https://economictimes.indiatimes.com/topic//news/international/world-news/janet-yellen-says-us-growth-rate-needs-to-slow-amid-full-employment/articleshow/103795052.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/oecd-raises-indias-growth-forecast-for-fy24-to-6-3-per-cent-inflation-outlook-revised-upward/articleshow/103785626.cms",
+            "https://economictimes.indiatimes.com/topic//news/india/modi-is-like-chinas-deng-xiaoping-billionaire-investor-ray-dalio-praises-indias-economic-growth/videoshow/103776767.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/sp-global-revises-indias-fy24-growth-forecast-upwards-to-6-6-turns-pessimistic-on-inflation/articleshow/103764131.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/global-growth-likely-to-slow-in-2024-tighter-financial-conditions-may-prevail-rbi/articleshow/103757248.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/indias-economic-growth-in-fy24-to-breach-6-on-back-of-macroeconomic-stability-mpc-member/articleshow/103756445.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/finance/finmin-defends-gdp-growth-estimates/articleshow/103699735.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/services-could-be-indias-growth-driver-help-generate-70mn-jobs-over-next-decade-hsbc-global-research/articleshow/103658700.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/india-growth-may-moderate-in-q3-while-china-property-slump-casts-shadow-on-global-prospects-fitch/articleshow/103656408.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/55-is-the-new-32-for-tv-screens-showcasing-indias-growing-economic-prowess/articleshow/103572758.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/cea-rejects-statistical-discrepancy-criticism-on-q1-growth-numbers/articleshow/103506535.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/a-majority-govt-in-2024-polls-can-spur-8-growth-barclays/articleshow/103481251.cms",
+            "https://economictimes.indiatimes.com/topic//news/international/world-news/u-s-economic-activity-modest-job-growth-subdued-fed-survey/articleshow/103443628.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/richer-india-bucks-gloomy-world-trend-as-it-loaded-wealth-when-others-lost/articleshow/103379395.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/big-jump-in-economic-growth-but-beware-the-frail-legs-3-readouts-from-indias-q1-gdp-data/articleshow/103269568.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/nomura-raises-indias-fy24-gdp-growth-forecast-to-5-9/articleshow/103268945.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/indias-economic-growth-rises-to-a-four-quarter-high-of-7-8-in-q1/articleshow/103253842.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/india-economic-growth-likely-picked-up-pace-in-april-june-according-reuters-poll/articleshow/103039210.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/economy-likely-grew-7-8-in-q1-economists/articleshow/102960061.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/price-pressure-to-remain-elevated-for-some-time-but-latest-spike-in-food-inflation-transitory-finmin/articleshow/102933741.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/icra-estimates-indias-gdp-growth-at-8-5-pc-in-first-quarter-maintains-fy24-forecast-at-6-pc/articleshow/102940366.cms",
+            "https://economictimes.indiatimes.com/topic//news/economy/indicators/growth-prospects-intact-in-fy24-but-external-headwinds-weigh-finance-ministry/articleshow/102403623.cms"
+        ]
+    },
+    {
+        "provider": "dainik",
+        "lang": "hi",
+        "urls": [
+            "https://www.bhaskar.com/national//national/news/delhi-viral-video-man-tied-beaten-death-sunder-nagri-131903543.html",
+            "https://www.bhaskar.com/national//national/news/supreme-court-on-high-courts-judges-appointment-131899100.html",
+            "https://www.bhaskar.com/national//national/news/cauvery-water-dispute-bangalore-bandh-situation-update-karnataka-tamil-nadu-131898187.html",
+            "https://www.bhaskar.com/national//national/news/dainik-bhaskar-news-headlines-s-jaishankar-un-speech-manipur-students-death-131901251.html"
+        ]
+    },
+    {
+        "provider": "economictimes",
+        "lang": "en",
+        "urls": []
+    },
+    {
+        "provider": "dainik",
+        "lang": "hi",
+        "urls": [
+            "https://www.bhaskar.com/national//national/news/delhi-jewellery-shop-robbery-cctv-footage-bhogal-news-131898552.html",
+            "https://www.bhaskar.com/national//national/news/pm-narendra-modi-gujarat-visit-second-day-updates-131899793.html",
+            "https://www.bhaskar.com/national//national/news/supreme-court-on-high-courts-judges-appointment-131899100.html",
+            "https://www.bhaskar.com/national//national/news/bjp-leader-shahnawaz-hussain-heart-attack-update-131899421.html",
+            "https://www.bhaskar.com/national//national/news/law-commission-to-clear-stand-on-one-nation-one-election-minimum-age-of-consent-under-pocso-today-131903116.html",
+            "https://www.bhaskar.com/national//national/news/assam-army-major-child-abuse-case-shailendra-yadav-kimmy-ralson-131903889.html",
+            "https://www.bhaskar.com/national//national/news/dainik-bhaskar-news-headlines-s-jaishankar-un-speech-manipur-students-death-131901251.html"
+        ]
     }
 ]

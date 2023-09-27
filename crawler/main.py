@@ -25,13 +25,16 @@ class App:
     def callback(self, ch, method, properties, body):
         req = json.loads(body)
         crawler = Crawl(lang = req['lang'], provider = req['provider'])
+        print(req)
         
         for url in req["urls"]:
             article = crawler.getNews(url)
 
+            print(article)
+
             # Do sentiment analysis + department prediction
 
-            self.insertArticle(article)
+            # self.insertArticle(article)
 
     def listen(self):
         self.channel.basic_consume(queue = "toCrawl", on_message_callback = self.callback, auto_ack = True)

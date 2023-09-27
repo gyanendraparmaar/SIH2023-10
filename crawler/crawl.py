@@ -1,4 +1,3 @@
-from urls import urls
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -6,13 +5,11 @@ from translate import Translator
 
 class Crawl:
 	def __init__(self, lang = 'en', provider = 'economictimes'):
-		# INIT variables
-		self.lang = 'en'
+		self.lang = lang
 		self.provider = provider
 		self.translator = Translator(from_lang = 'hi', to_lang = "en")
 		self.article = {}
 
-		# INIT constants
 		self.KEYS = ['inLanguage', 'headline', 'description', 'datePublished', 'articleBody']
 
 	def getNews(self, url):
