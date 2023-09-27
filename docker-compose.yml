@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=idkthepassword
+      - PGUSER=postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "db_prod"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+
+  api:
+    image: python:3.10-bullseye
+    working_dir: /app
+    volumes:
+      - ./api:/app
+    ports:
+      - 8001:8001
+    command: "pip install -r requirements.txt"
+    entrypoint: ["gunicorn", "app:app", "--timeout", "600", "-b", "0.0.0.0:8001"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    image: node:latest
+    user: node
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./client:/home/node/app
+    ports:
+      - 3000:3000
+    command: "npm run start"
+    depends_on:
+      postgres:
+        condition: service_healthy
