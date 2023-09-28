@@ -10,12 +10,12 @@ from predict import classifier
 class App:
     def __init__(self):
         self.mydb = psycopg2.connect(
-            host = "database",
+            host = "localhost",
             user = "postgres",
             password = "idkthepassword",
         )
         self.cursor = self.mydb.cursor()
-        connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq'))
+        connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
         self.channel = connection.channel()
         self.channel.queue_declare(queue = "toCrawl")
 

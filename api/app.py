@@ -9,11 +9,11 @@ routes = ["/ping"]
 def home():
     return render_template("home.html", routes=routes)
 
-@app.route("/ping")
+@app.route("/api/ping")
 def ping():
     return {"status": "success", "data": "pong"}
 
-@app.route("/articles", methods=["POST"])
+@app.route("/api/articles", methods=["POST"])
 def getArticles():
     page = request.args.get("page")
     limit = request.args.get("limit")
@@ -30,10 +30,10 @@ def getArticles():
         return {"status": "fail", "data": "DBError"}
     return {"status": "success", "data": data}
 
-@app.route("/getart", methods=["GET"])
+@app.route("/api/getart", methods=["GET"])
 def get_article_by_id():
     id = request.args.get("id")
-    if id is None:
+    if id is None or not id.isnumeric():
         return {"status": "fail", "data": "invalid request - id not found"}
     data = get_id(id)
     if data == []:
@@ -43,4 +43,4 @@ def get_article_by_id():
 
 if __name__ == "__main__":
     # app.run(debug=True, port=8001, host="0.0.0.0")
-    app.run(debug=True, host="0.0.0.0", port=8001)
+    app.run(debug=False, host="0.0.0.0", port=8001)

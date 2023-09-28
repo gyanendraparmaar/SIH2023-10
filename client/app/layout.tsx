@@ -7,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='relative h-screen w-screen flex overflow-hidden'>{children}</body>
+      <body className='absolute h-screen w-screen flex overflow-hidden top-0 left-0'>{children}</body>
     </html>
   )
 }

@@ -6,7 +6,7 @@ import json
 MIN = 10
 toBeChecked = [EconomicTimes, DainikBhaskar]
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(host = 'rabbitmq'))
+connection = pika.BlockingConnection(pika.ConnectionParameters(host = 'localhost'))
 channel = connection.channel()
 channel.queue_declare(queue = 'toCrawl')
 

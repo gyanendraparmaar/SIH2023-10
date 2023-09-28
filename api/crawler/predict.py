@@ -105,9 +105,9 @@ class Department_classifier:
 #         self.df = pd.read_csv('/kaggle/input/sih-2023/sample1.csv')
         self.index_to_option = {i: departments[i] for i in range(len(departments))}
         self.option_to_index = {departments[i]: i for i in range(len(departments))}
-        self.tokenizer = AutoTokenizer.from_pretrained('/home/atish/SIH_2k23/crawler/files')
+        self.tokenizer = AutoTokenizer.from_pretrained('/home/atish/SIH_2k23/api/crawler/files')
         self.model = AutoModelForSequenceClassification.from_pretrained(
-            "/home/atish/SIH_2k23/crawler/files", num_labels=len(departments),
+            "/home/atish/SIH_2k23/api/crawler/files", num_labels=len(departments),
             id2label=self.index_to_option, label2id=self.option_to_index)
         self.data_collator = DataCollatorWithPadding(tokenizer=self.tokenizer)
         nltk.download('vader_lexicon')

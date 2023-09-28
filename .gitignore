@@ -4,3 +4,5 @@
 /secrets
 /mailer/node_modules
 /__pycache__
+/api/crawler/files
+/api/crawler/files.7z
